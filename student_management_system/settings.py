@@ -70,8 +70,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'votasec',   
-        'USER': 'postgres',      
-        'PASSWORD':'chebichii1',
+        'USER': 'angela',      
+        'PASSWORD':'Angie168',
         'HOST': 'localhost', 
     }
 }
