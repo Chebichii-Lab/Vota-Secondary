@@ -275,7 +275,7 @@ def add_student_save(request):
             password = form.cleaned_data['password']
             address = form.cleaned_data['address']
             session_year_id = form.cleaned_data['session_year_id']
-            course_id = form.cleaned_data['course_id']
+            # course_id = form.cleaned_data['course_id']
             gender = form.cleaned_data['gender']
 
             # Getting Profile Pic first
