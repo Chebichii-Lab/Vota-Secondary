@@ -7,37 +7,37 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 
-from student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, FeedBackStudent, FeedBackStaffs, LeaveReportStudent, LeaveReportStaff, Attendance, AttendanceReport
+from student_management_app.models import CustomUser, Staffs, Subjects, Students, SessionYearModel, Attendance, AttendanceReport
 from .forms import AddStudentForm, EditStudentForm
 
 
 def admin_home(request):
     all_student_count = Students.objects.all().count()
     subject_count = Subjects.objects.all().count()
-    course_count = Courses.objects.all().count()
+    # course_count = Courses.objects.all().count()
     staff_count = Staffs.objects.all().count()
 
     # Total Subjects and students in Each Course
-    course_all = Courses.objects.all()
-    course_name_list = []
+    # course_all = Courses.objects.all()
+    # course_name_list = []
     subject_count_list = []
     student_count_list_in_course = []
 
-    for course in course_all:
-        subjects = Subjects.objects.filter(course_id=course.id).count()
-        students = Students.objects.filter(course_id=course.id).count()
-        course_name_list.append(course.course_name)
-        subject_count_list.append(subjects)
-        student_count_list_in_course.append(students)
+    # for course in course_all:
+        # subjects = Subjects.objects.filter(course_id=course.id).count()
+        # students = Students.objects.filter(course_id=course.id).count()
+        # course_name_list.append(course.course_name)
+        # subject_count_list.append(subjects)
+        # student_count_list_in_course.append(students)
     
     subject_all = Subjects.objects.all()
     subject_list = []
     student_count_list_in_subject = []
     for subject in subject_all:
-        course = Courses.objects.get(id=subject.course_id.id)
-        student_count = Students.objects.filter(course_id=course.id).count()
+        # course = Courses.objects.get(id=subject.course_id.id)
+        # student_count = Students.objects.filter(course_id=course.id).count()
         subject_list.append(subject.subject_name)
-        student_count_list_in_subject.append(student_count)
+        # student_count_list_in_subject.append(student_count)
     
     # For Saffs
     staff_attendance_present_list=[]
@@ -48,9 +48,7 @@ def admin_home(request):
     for staff in staffs:
         subject_ids = Subjects.objects.filter(staff_id=staff.admin.id)
         attendance = Attendance.objects.filter(subject_id__in=subject_ids).count()
-        leaves = LeaveReportStaff.objects.filter(staff_id=staff.id, leave_status=1).count()
         staff_attendance_present_list.append(attendance)
-        staff_attendance_leave_list.append(leaves)
         staff_name_list.append(staff.admin.first_name)
 
     # For Students
@@ -62,18 +60,16 @@ def admin_home(request):
     for student in students:
         attendance = AttendanceReport.objects.filter(student_id=student.id, status=True).count()
         absent = AttendanceReport.objects.filter(student_id=student.id, status=False).count()
-        leaves = LeaveReportStudent.objects.filter(student_id=student.id, leave_status=1).count()
         student_attendance_present_list.append(attendance)
-        student_attendance_leave_list.append(leaves+absent)
         student_name_list.append(student.admin.first_name)
 
 
     context={
         "all_student_count": all_student_count,
         "subject_count": subject_count,
-        "course_count": course_count,
+       
         "staff_count": staff_count,
-        "course_name_list": course_name_list,
+       
         "subject_count_list": subject_count_list,
         "student_count_list_in_course": student_count_list_in_course,
         "subject_list": subject_list,
@@ -181,72 +177,6 @@ def delete_staff(request, staff_id):
 
 
 
-def add_course(request):
-    return render(request, "hod_template/add_course_template.html")
-
-
-def add_course_save(request):
-    if request.method != "POST":
-        messages.error(request, "Invalid Method!")
-        return redirect('add_course')
-    else:
-        course = request.POST.get('course')
-        try:
-            course_model = Courses(course_name=course)
-            course_model.save()
-            messages.success(request, "Course Added Successfully!")
-            return redirect('add_course')
-        except:
-            messages.error(request, "Failed to Add Course!")
-            return redirect('add_course')
-
-
-def manage_course(request):
-    courses = Courses.objects.all()
-    context = {
-        "courses": courses
-    }
-    return render(request, 'hod_template/manage_course_template.html', context)
-
-
-def edit_course(request, course_id):
-    course = Courses.objects.get(id=course_id)
-    context = {
-        "course": course,
-        "id": course_id
-    }
-    return render(request, 'hod_template/edit_course_template.html', context)
-
-
-def edit_course_save(request):
-    if request.method != "POST":
-        HttpResponse("Invalid Method")
-    else:
-        course_id = request.POST.get('course_id')
-        course_name = request.POST.get('course')
-
-        try:
-            course = Courses.objects.get(id=course_id)
-            course.course_name = course_name
-            course.save()
-
-            messages.success(request, "Course Updated Successfully.")
-            return redirect('/edit_course/'+course_id)
-
-        except:
-            messages.error(request, "Failed to Update Course.")
-            return redirect('/edit_course/'+course_id)
-
-
-def delete_course(request, course_id):
-    course = Courses.objects.get(id=course_id)
-    try:
-        course.delete()
-        messages.success(request, "Course Deleted Successfully.")
-        return redirect('manage_course')
-    except:
-        messages.error(request, "Failed to Delete Course.")
-        return redirect('manage_course')
 
 
 def manage_session(request):
@@ -345,7 +275,7 @@ def add_student_save(request):
             password = form.cleaned_data['password']
             address = form.cleaned_data['address']
             session_year_id = form.cleaned_data['session_year_id']
-            course_id = form.cleaned_data['course_id']
+            # course_id = form.cleaned_data['course_id']
             gender = form.cleaned_data['gender']
 
             # Getting Profile Pic first
@@ -364,8 +294,8 @@ def add_student_save(request):
                 user = CustomUser.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, user_type=3)
                 user.students.address = address
 
-                course_obj = Courses.objects.get(id=course_id)
-                user.students.course_id = course_obj
+                # course_obj = Courses.objects.get(id=course_id)
+                # user.students.course_id = course_obj
 
                 session_year_obj = SessionYearModel.objects.get(id=session_year_id)
                 # user.students.session_year_id = session_year_obj
@@ -457,8 +387,8 @@ def edit_student_save(request):
                 student_model = Students.objects.get(admin=student_id)
                 student_model.address = address
 
-                course = Courses.objects.get(id=course_id)
-                student_model.course_id = course
+                # course = Courses.objects.get(id=course_id)
+                # student_model.course_id = course
 
                 session_year_obj = SessionYearModel.objects.get(id=session_year_id)
                 student_model.session_year_id = session_year_obj
@@ -491,10 +421,10 @@ def delete_student(request, student_id):
 
 
 def add_subject(request):
-    courses = Courses.objects.all()
+    # courses = Courses.objects.all()
     staffs = CustomUser.objects.filter(user_type='2')
     context = {
-        "courses": courses,
+        # "courses": courses,
         "staffs": staffs
     }
     return render(request, 'hod_template/add_subject_template.html', context)
@@ -508,14 +438,14 @@ def add_subject_save(request):
     else:
         subject_name = request.POST.get('subject')
 
-        course_id = request.POST.get('course')
-        course = Courses.objects.get(id=course_id)
+        # course_id = request.POST.get('course')
+        # course = Courses.objects.get(id=course_id)
         
         staff_id = request.POST.get('staff')
         staff = CustomUser.objects.get(id=staff_id)
 
         try:
-            subject = Subjects(subject_name=subject_name, course_id=course, staff_id=staff)
+            subject = Subjects(subject_name=subject_name, staff_id=staff)
             subject.save()
             messages.success(request, "Subject Added Successfully!")
             return redirect('add_subject')
@@ -534,11 +464,11 @@ def manage_subject(request):
 
 def edit_subject(request, subject_id):
     subject = Subjects.objects.get(id=subject_id)
-    courses = Courses.objects.all()
+    
     staffs = CustomUser.objects.filter(user_type='2')
     context = {
         "subject": subject,
-        "courses": courses,
+        
         "staffs": staffs,
         "id": subject_id
     }
@@ -558,8 +488,8 @@ def edit_subject_save(request):
             subject = Subjects.objects.get(id=subject_id)
             subject.subject_name = subject_name
 
-            course = Courses.objects.get(id=course_id)
-            subject.course_id = course
+            # course = Courses.objects.get(id=course_id)
+            # subject.course_id = course
 
             staff = CustomUser.objects.get(id=staff_id)
             subject.staff_id = staff
@@ -606,96 +536,6 @@ def check_username_exist(request):
         return HttpResponse(True)
     else:
         return HttpResponse(False)
-
-
-
-def student_feedback_message(request):
-    feedbacks = FeedBackStudent.objects.all()
-    context = {
-        "feedbacks": feedbacks
-    }
-    return render(request, 'hod_template/student_feedback_template.html', context)
-
-
-@csrf_exempt
-def student_feedback_message_reply(request):
-    feedback_id = request.POST.get('id')
-    feedback_reply = request.POST.get('reply')
-
-    try:
-        feedback = FeedBackStudent.objects.get(id=feedback_id)
-        feedback.feedback_reply = feedback_reply
-        feedback.save()
-        return HttpResponse("True")
-
-    except:
-        return HttpResponse("False")
-
-
-def staff_feedback_message(request):
-    feedbacks = FeedBackStaffs.objects.all()
-    context = {
-        "feedbacks": feedbacks
-    }
-    return render(request, 'hod_template/staff_feedback_template.html', context)
-
-
-@csrf_exempt
-def staff_feedback_message_reply(request):
-    feedback_id = request.POST.get('id')
-    feedback_reply = request.POST.get('reply')
-
-    try:
-        feedback = FeedBackStaffs.objects.get(id=feedback_id)
-        feedback.feedback_reply = feedback_reply
-        feedback.save()
-        return HttpResponse("True")
-
-    except:
-        return HttpResponse("False")
-
-
-def student_leave_view(request):
-    leaves = LeaveReportStudent.objects.all()
-    context = {
-        "leaves": leaves
-    }
-    return render(request, 'hod_template/student_leave_view.html', context)
-
-def student_leave_approve(request, leave_id):
-    leave = LeaveReportStudent.objects.get(id=leave_id)
-    leave.leave_status = 1
-    leave.save()
-    return redirect('student_leave_view')
-
-
-def student_leave_reject(request, leave_id):
-    leave = LeaveReportStudent.objects.get(id=leave_id)
-    leave.leave_status = 2
-    leave.save()
-    return redirect('student_leave_view')
-
-
-def staff_leave_view(request):
-    leaves = LeaveReportStaff.objects.all()
-    context = {
-        "leaves": leaves
-    }
-    return render(request, 'hod_template/staff_leave_view.html', context)
-
-
-def staff_leave_approve(request, leave_id):
-    leave = LeaveReportStaff.objects.get(id=leave_id)
-    leave.leave_status = 1
-    leave.save()
-    return redirect('staff_leave_view')
-
-
-def staff_leave_reject(request, leave_id):
-    leave = LeaveReportStaff.objects.get(id=leave_id)
-    leave.leave_status = 2
-    leave.save()
-    return redirect('staff_leave_view')
 
 
 def admin_view_attendance(request):
