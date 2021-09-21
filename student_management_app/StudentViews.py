@@ -20,6 +20,7 @@ def student_home(request):
     subject_name = []
     data_present = []
     data_absent = []
+    class_name = []
     subject_data = Subjects.objects.filter(course_id=student_obj.course_id)
     for subject in subject_data:
         attendance = Attendance.objects.filter(subject_id=subject.id)
@@ -28,6 +29,7 @@ def student_home(request):
         subject_name.append(subject.subject_name)
         data_present.append(attendance_present_count)
         data_absent.append(attendance_absent_count)
+        class_name.append(subject.class_name)
     
     context={
         "total_attendance": total_attendance,
@@ -36,7 +38,8 @@ def student_home(request):
         # "total_subjects": total_subjects,
         "subject_name": subject_name,
         "data_present": data_present,
-        "data_absent": data_absent
+        "data_absent": data_absent,
+        "class_name" : class_name
     }
     return render(request, "student_template/student_home_template.html", context)
 

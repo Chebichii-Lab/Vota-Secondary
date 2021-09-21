@@ -58,6 +58,14 @@
                                     {% endfor %}
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>Class </label>
+                                <select class="form-control" name="class" id="class">
+                                    {% for class in classes %}
+                                        <option value="{{ class.id }}">{{ classes.class_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <label>Session Year </label>
