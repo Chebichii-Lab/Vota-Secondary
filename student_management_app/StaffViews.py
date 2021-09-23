@@ -302,3 +302,16 @@ def staff_add_result_save(request):
         except:
             messages.error(request, "Failed to Add Result!")
             return redirect('staff_add_result')
+
+def exam1 (request):
+      return render(request, 'staff_template/exam1.html')
+
+
+def exam2 (request):
+      return render(request, 'staff_template/exam2.html')
+
+def endterm (request):
+      return render(request, 'staff_template/endterm.html')
+
+def finalreport (request):
+      return render(request, 'staff_template/finalreport.html')
