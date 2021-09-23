@@ -48,7 +48,20 @@ class Courses(models.Model):
     # def __str__(self):
 	#     return self.course_name
 
+classes = [('form-one', 'form-one'),
+           ('form-two', 'form-two'),
+           ('form-three', 'form-three'),
+           ('form-four', 'form-four')]
 
+class Classes(models.Model):
+    id =models.AutoField(primary_key=True)
+    class_name = models.CharField(max_length=10,choices=classes)
+    objects = models.Manager()
+
+classes = [('form-one', 'form-one'),
+           ('form-two', 'form-two'),
+           ('form-three', 'form-three'),
+           ('form-four', 'form-four')]
 
 class Subjects(models.Model):
     id =models.AutoField(primary_key=True)
@@ -58,6 +71,7 @@ class Subjects(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
+    class_name = models.CharField(max_length=10,choices=classes)
 
 
 
@@ -94,6 +108,7 @@ class AttendanceReport(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
+    class_name = models.CharField(max_length=10,choices=classes)
 
 class NotificationStudent(models.Model):
     id = models.AutoField(primary_key=True)

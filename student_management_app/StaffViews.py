@@ -8,7 +8,7 @@ from django.core import serializers
 import json
 
 
-from student_management_app.models import CustomUser, Staffs, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, StudentResult
+from student_management_app.models import Classes, CustomUser, Staffs, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, StudentResult
 
 
 def staff_home(request):
@@ -260,9 +260,11 @@ def staff_profile_update(request):
 def staff_add_result(request):
     subjects = Subjects.objects.filter(staff_id=request.user.id)
     session_years = SessionYearModel.objects.all()
+    classes = Classes.objects.all()
     context = {
         "subjects": subjects,
         "session_years": session_years,
+        "classes": classes,
     }
     return render(request, "staff_template/add_result_template.html", context)
 
@@ -276,25 +278,40 @@ def staff_add_result_save(request):
         assignment_marks = request.POST.get('assignment_marks')
         exam_marks = request.POST.get('exam_marks')
         subject_id = request.POST.get('subject')
+        class_id= request.POST.get('class')
 
         student_obj = Students.objects.get(admin=student_admin_id)
         subject_obj = Subjects.objects.get(id=subject_id)
+        class_obj = Classes.objects.get(id=class_id)
 
         try:
             # Check if Students Result Already Exists or not
-            check_exist = StudentResult.objects.filter(subject_id=subject_obj, student_id=student_obj).exists()
+            check_exist = StudentResult.objects.filter(subject_id=subject_obj,class_id=class_obj, student_id=student_obj).exists()
             if check_exist:
-                result = StudentResult.objects.get(subject_id=subject_obj, student_id=student_obj)
+                result = StudentResult.objects.get(subject_id=subject_obj,class_id=class_obj, student_id=student_obj)
                 result.subject_assignment_marks = assignment_marks
                 result.subject_exam_marks = exam_marks
                 result.save()
                 messages.success(request, "Result Updated Successfully!")
                 return redirect('staff_add_result')
             else:
-                result = StudentResult(student_id=student_obj, subject_id=subject_obj, subject_exam_marks=exam_marks, subject_assignment_marks=assignment_marks)
+                result = StudentResult(student_id=student_obj, subject_id=subject_obj,class_id=class_obj, subject_exam_marks=exam_marks, subject_assignment_marks=assignment_marks)
                 result.save()
                 messages.success(request, "Result Added Successfully!")
                 return redirect('staff_add_result')
         except:
             messages.error(request, "Failed to Add Result!")
             return redirect('staff_add_result')
+
+def exam1 (request):
+      return render(request, 'staff_template/exam1.html')
+
+
+def exam2 (request):
+      return render(request, 'staff_template/exam2.html')
+
+def endterm (request):
+      return render(request, 'staff_template/endterm.html')
+
+def finalreport (request):
+      return render(request, 'staff_template/finalreport.html')
