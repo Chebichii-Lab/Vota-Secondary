@@ -59,12 +59,7 @@ class Subjects(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
 
-class Courses(models.Model):
-    id = models.AutoField(primary_key=True)
-    course_name = models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    objects = models.Manager()
+
 
 class Students(models.Model):
     id = models.AutoField(primary_key=True)
@@ -127,6 +122,19 @@ class StudentResult(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
+
+class Timetable(models.Model):
+    date = models.DateField()
+    day = models.CharField(max_length=100)
+    subject=models.CharField(max_length=1000)
+    start = models.TimeField()
+    finish = models.TimeField()
+    stream = models.CharField(max_length=100)
+    teacher = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.day
+
 
 
 #Creating Django Signals
