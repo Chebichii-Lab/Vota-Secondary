@@ -275,7 +275,7 @@ def add_student_save(request):
             password = form.cleaned_data['password']
             address = form.cleaned_data['address']
             session_year_id = form.cleaned_data['session_year_id']
-            course_id = form.cleaned_data['course_id']
+            # course_id = form.cleaned_data['course_id']
             gender = form.cleaned_data['gender']
 
             # Getting Profile Pic first
@@ -660,3 +660,8 @@ def add_timetable_save(request):
         except:
             messages.error(request, "Failed to Add Timetable!")
             return redirect('manage_timetable')
+
+def timetable(request):
+   
+    return render(request, 'hod_template/Timetable.html')
+

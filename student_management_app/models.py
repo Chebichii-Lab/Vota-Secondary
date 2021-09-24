@@ -71,7 +71,7 @@ class Subjects(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
-    class_name = models.CharField(max_length=10,choices=classes)
+    # class_name = models.CharField(max_length=10,choices=classes)
 
 
 
