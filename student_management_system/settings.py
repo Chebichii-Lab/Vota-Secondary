@@ -71,7 +71,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'votasec',   
         'USER': 'postgres',      
-        'PASSWORD':'chebichii1',
+        'PASSWORD':'jojo2001',
         'HOST': 'localhost', 
     }
 }
