@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'student_management_app',
 ]
 
@@ -71,7 +70,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'votasec',   
         'USER': 'postgres',      
-        'PASSWORD':'chebichii1',
+        'PASSWORD':'6833',
         'HOST': 'localhost', 
     }
 }
