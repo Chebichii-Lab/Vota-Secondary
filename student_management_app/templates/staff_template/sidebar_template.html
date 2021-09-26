@@ -70,36 +70,6 @@
               </a>
             </li>
             <li class="nav-item">
-              {% url 'exam1' as exam1 %}
-              <a href="{{ exam1 }}" class="nav-link {% if request.path == staff_update_attendance %} active {% endif %}">
-                <i class="nav-icon fas fa-calendar-alt"></i>
-                <!-- <p>
-                  View Update Attendance
-                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
-                </p> -->
-              </a>
-            </li>
-            <li class="nav-item">
-              {% url 'exam2' as exam2 %}
-              <a href="{{ exam2}}" class="nav-link {% if request.path == staff_update_attendance %} active {% endif %}">
-                <i class="nav-icon fas fa-calendar-alt"></i>
-                <!-- <p>
-                  View Update Attendance
-                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
-                </p> -->
-              </a>
-            </li>
-            <li class="nav-item">
-              {% url 'endterm' as endterm %}
-              <a href="{{ endterm }}" class="nav-link {% if request.path == staff_update_attendance %} active {% endif %}">
-                <i class="nav-icon fas fa-calendar-alt"></i>
-                <!-- <p>
-                  View Update Attendance
-                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
-                </p> -->
-              </a>
-            </li>
-            <li class="nav-item">
               {% url 'finalreport' as finalreport %}
               <a href="{{ finalreport }}" class="nav-link {% if request.path == staff_update_attendance %} active {% endif %}">
                 <i class="nav-icon fas fa-calendar-alt"></i>
