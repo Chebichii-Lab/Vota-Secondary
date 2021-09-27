@@ -46,10 +46,7 @@ urlpatterns = [
     path('manage_timetable/', HodViews.manage_timetable, name="manage_timetable"),
     path('add_timetable_save/', HodViews.add_timetable_save, name='add_timetable_save'),
     path('timetable/', HodViews.timetable, name='timetable'),
-
-
-    
-
+   
 
     # URLS for Staff
     path('staff_home/', StaffViews.staff_home, name="staff_home"),
