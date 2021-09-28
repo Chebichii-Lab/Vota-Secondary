@@ -258,13 +258,15 @@ def staff_profile_update(request):
 
 
 def staff_add_result(request):
-    subjects = Subjects.objects.filter(staff_id=request.user.id)
+    subjects = Subjects.objects.all()
     session_years = SessionYearModel.objects.all()
     classes = Classes.objects.all()
+    students = Students.objects.filter(id=request.user.id)
     context = {
         "subjects": subjects,
         "session_years": session_years,
         "classes": classes,
+        "students": students
     }
     return render(request, "staff_template/add_result_template.html", context)
 

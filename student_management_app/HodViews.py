@@ -35,7 +35,7 @@ def admin_home(request):
     student_count_list_in_subject = []
     for subject in subject_all:
         # course = Courses.objects.get(id=subject.course_id.id)
-        # student_count = Students.objects.filter(course_id=course.id).count()
+        student_count = Students.objects.filter().count()
         subject_list.append(subject.subject_name)
         # student_count_list_in_subject.append(student_count)
     
@@ -69,7 +69,7 @@ def admin_home(request):
         "subject_count": subject_count,
        
         "staff_count": staff_count,
-       
+        "student_count": student_count,
         "subject_count_list": subject_count_list,
         "student_count_list_in_course": student_count_list_in_course,
         "subject_list": subject_list,
@@ -251,52 +251,37 @@ def delete_session(request, session_id):
 
 
 def add_student(request):
-    form = AddStudentForm()
-    context = {
-        "form": form
-    }
-    return render(request, 'hod_template/add_student_template.html', context)
+    # form = AddStudentForm()
+    # context = {
+    #     "form": form
+    # }
+    return render(request, 'hod_template/add_student_template.html')
 
 
 
 
 def add_student_save(request):
     if request.method != "POST":
-        messages.error(request, "Invalid Method")
+        messages.error(request, "Invalid Method ")
         return redirect('add_student')
     else:
-        form = AddStudentForm(request.POST, request.FILES)
-
-        if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            username = form.cleaned_data['username']
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            address = form.cleaned_data['address']
-            session_year_id = form.cleaned_data['session_year_id']
-            gender = form.cleaned_data['gender']
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        address = request.POST.get('address')
+        gender = request.POST.get('gender')
 
 
-            try:
-                user = CustomUser.objects.create_user(username=username, password=password, email=email, first_name=first_name, address=address, last_name=last_name, user_type=3)
-                user.students.address = address
-
-                # course_obj = Courses.objects.get(id=course_id)
-                # user.students.course_id = course_obj
-
-                session_year_obj = SessionYearModel.objects.get(id=session_year_id)
-                user.students.session_year_id = session_year_obj
-
-                user.students.gender = gender
-                user.save()
-                print(user.email)
-                messages.success(request, "Student Added Successfully!")
-                return redirect('add_student')
-            except:
-                messages.error(request, "Failed to Add Student!")
-                return redirect('add_student')
-        else:
+        try:
+            user = CustomUser.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, gender=gender, user_type=3)
+            user.student.address = address
+            user.save()
+            messages.success(request, "Student Added Successfully!")
+            return redirect('add_student')
+        except:
+            messages.error(request, "Failed to Add Student!")
             return redirect('add_student')
 
 
@@ -320,7 +305,6 @@ def edit_student(request, student_id):
     form.fields['first_name'].initial = student.admin.first_name
     form.fields['last_name'].initial = student.admin.last_name
     form.fields['address'].initial = student.address
-    form.fields['course_id'].initial = student.course_id.id
     form.fields['gender'].initial = student.gender
     form.fields['session_year_id'].initial = student.session_year_id.id
 
@@ -347,7 +331,6 @@ def edit_student_save(request):
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             address = form.cleaned_data['address']
-            course_id = form.cleaned_data['course_id']
             gender = form.cleaned_data['gender']
             session_year_id = form.cleaned_data['session_year_id']
 

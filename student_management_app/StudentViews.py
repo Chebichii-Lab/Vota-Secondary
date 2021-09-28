@@ -21,7 +21,7 @@ def student_home(request):
     data_present = []
     data_absent = []
     class_name = []
-    subject_data = Subjects.objects.filter(course_id=student_obj.course_id)
+    subject_data = Subjects.objects.filter()
     for subject in subject_data:
         attendance = Attendance.objects.filter(subject_id=subject.id)
         attendance_present_count = AttendanceReport.objects.filter(attendance_id__in=attendance, status=True, student_id=student_obj.id).count()
@@ -29,7 +29,6 @@ def student_home(request):
         subject_name.append(subject.subject_name)
         data_present.append(attendance_present_count)
         data_absent.append(attendance_absent_count)
-        class_name.append(subject.class_name)
     
     context={
         "total_attendance": total_attendance,

@@ -1,66 +1,263 @@
-{% extends 'student_template/base_template.html' %}
-
-{% block page_title %}
-    Result
-{% endblock page_title %}
-
-{% block main_content %}
-
+{% extends 'base.html' %}
 {% load static %}
 
-<section class="content">
-        <div class="container-fluid">
+{% block content %}
 
-            
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Result</h3>
-                        </div>
-
-                        <div class="card-body">
-                           <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="thead-light">
-                                    <tr>
-                                        <th>#ID</th>
-                                        <th>Subject</th>
-                                        <th>Assignments Marks</th>
-                                        <th>Exam Marks</th>
-                                        <th>status</th>
-                                    </tr>
-                                    </thead>
-                                    
-                                    {% for row in student_result %}
-                                    <tr>
-                                        <td>{{ row.id }}</td>
-                                        <td>{{ row.subject_id.subject_name }}</td>
-                                        <td>{{ row.subject_assignment_marks }}</td>
-                                        <td>{{ row.subject_exam_marks }}</td>
-                                        <td>
-                                            {% if row.subject_exam_marks >= 40 %}
-                                                <span class="alert alert-success">Pass</span>
-                                            {% else %}
-                                                <span class="alert alert-danger">Fail</span>
-                                            {% endif %}
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </table>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- /.container-fluid -->
-      </section>
-
-  {% endblock main_content %}
-
-{% block custom_js %}
-
-{% endblock custom_js %}
+<body class="hold-transition container" style="margin: 0 auto;">
+  <div>
+    <h3 class="text-center">Vota Secondary school</h1>
+      <h1 class="text-center">REPORT CARD</h1>
+      <form>
+        <div class="form-row">
+          <div class="col-8">
+            <label for="name">Student Name:</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col">
+            <label for="class">Class:</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+        </div>
+        <div class="form-row" style="margin-top: 1%;">
+          <div class="col-7">
+            <label for="adm">Adm No:</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col">
+            <label for="house">House:</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+        </div>
+        <div class="form-row" style="margin-top: 1%;">
+          <div class="col">
+            <label for="position">Position</label>:</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col">
+            <label for="grade"> Mean Grade:</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col">
+            <label for="points">Points:</label>
+            <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col">
+            <label for="marks">Total:</label>
+            <input type="text" class="form-control" placeholder=" ">
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table table-bordered" style="margin-top: 20px">
+            <thead>
+              <tr  class="bg-info">
+                <th scope="col" >Subjects</th>
+                <th scope="col "  class="bg-info">Cat 1</th>
+                <th scope="col">Cat 2</th>
+                <th scope="col">End Term</th>
+                <th scope="col">Average</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Math</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">English</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Kiswahili</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">English</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">BIology</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Chemistry</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Physics</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">History</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Geography</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">CRE</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Chemistry</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Business Studies</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Agriculture</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <th scope="row">Computer Studies</th>
+                <td>30</td>
+                <td>56</td>
+                <td>78</td>
+                <td>64</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-bordered" style="margin-top: 20px">
+            <thead>
+              <tr>
+                <th scope="row" colspan="3"  class="bg-info">Grading System</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Grade</th>
+                <th>Marks</th>
+                <th>Points</th>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>81 -100</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td>A-</td>
+                <td>74-80</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>B+</td>
+                <td>67-73</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>60-66</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>B-</td>
+                <td>53-59</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>C+</td>
+                <td>46-52</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td>39-45</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>C-</td>
+                <td>32-38</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>D+</td>
+                <td>25-31</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>D</td>
+                <td>16-24</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>D-</td>
+                <td>11-17</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <td>E</td>
+                <td>07-10</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered" style="margin-top: 20px">
+            <h4 class="text-center" style="font-weight: bold; margin-top: 2%">Teachers Remark's</h4>
+            <tbody>
+              <tr>
+                <th scope="row" style="padding: 2%;"></th>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered" style="margin-top: 2px">
+            <h4 class="text-center" style="font-weight: bold; margin-top: 2%">Head Teachers Remark's</h4>
+            <tbody>
+              <tr>
+                <th scope="row" style="padding: 2%;"></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</body>
+{% endblock %}

@@ -49,7 +49,10 @@
                             
 
                         <div class="card-body">
-                           
+                           <div>
+                               <label > Student Name</label>
+                               <input type="text">
+                           </div>
                             <div class="form-group">
                                 <label>Subject </label>
                                 <select class="form-control" name="subject" id="subject">
@@ -61,30 +64,89 @@
                             <div class="form-group">
                                 <label>Class </label>
                                 <select class="form-control" name="class" id="class">
-                                    {% for class in classes %}
-                                        <option value="{{ class.id }}">{{ classes.class_name }}</option>
-                                    {% endfor %}
+                                    <option value="form1"> form 1</option>
+                                    <option value="form2"> form 2</option>
+                                    <option value="form3"> form 3</option>
+                                    <option value="form4"> form 4</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
+                                <label> exam </label>
+                                <select class="form-control" name="class" id="class">
+                                        <option value="exam1" >exam 1</option>
+                                        <option value="exam2" >exam 2</option>
+                                        <option value="endterm" >end term</option>
+                                </select>
+                                <input style="margin-top: 10px;" type="number">
+                            </div>
+
+                            <div>
+                                <label> Grade </label>
+                                <select class="form-control" name="grade" id="grade">
+                                    <option value="A" >A</option>
+                                    <option value="A-" >A-</option>
+                                    <option value="B+" >B+</option>
+                                    <option value="B" >B</option>
+                                    <option value="B-" >B-</option>
+                                    <option value="C+" >C+</option>
+                                    <option value="C" >C</option>
+                                    <option value="C-" >C-</option>
+                                    <option value="D+" >D+</option>
+                                    <option value="D" >D</option>
+                                    <option value="D-" >D-</option>
+                                    <option value="D-" >E</option>
+                            </select>
+                            </div>
+
+                            <div style="margin-top: 20px;">
+                                <label > Points
+                                </label>
+                                <input type="number">
+                            </div>
+
+                            <div style="margin-top: 20px;">
+                                <label > Position
+                                </label>
+                                <input type="number">
+                            </div>
+
+                            <div>
+                                <label >Remarks</label>
+                                <select class="form-control" name="remarks" id="remarks">
+                                    <option value="excellent" >excellent</option>
+                                    <option value="very good" >very good</option>
+                                    <option value="good" >good</option>
+                                    <option value="average" >average</option>
+                                    <option value="put more effort" >put more effort</option>
+                                    <option value="poor" >poor</option>
+                                    <option value="very poor" >very poor</option>
+                            </select>
+                            </div>
+
+                            <div style="margin-top: 20px;">
+                                <label> initials</label>
+                                <input type="text"> 
+                            </div>
+
+                            <!-- <div class="form-group">
                                 <label>Session Year </label>
                                 <select class="form-control" name="session_year" id="session_year">
                                     {% for session_year in session_years %}
                                         <option value="{{ session_year.id }}">{{ session_year.session_start_year }} to {{ session_year.session_end_year }}</option>
                                     {% endfor %}
                                 </select>
-                            </div>
+                            </div> -->
+
+                            
 
 
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                        <button type="button" class="btn btn-primary" id="fetch_student">Fetch Student</button>
+                        <button type="submit" class="btn btn-primary" id="fetch_student">save</button>
                         </div>
-
-                        {% comment %} Displaying Students Here {% endcomment %}
 
                         <div class="card-footer" id="student_data">
                         </div> 
