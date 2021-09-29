@@ -43,6 +43,11 @@ urlpatterns = [
     path('admin_get_attendance_student/', HodViews.admin_get_attendance_student, name="admin_get_attendance_student"),
     path('admin_profile/', HodViews.admin_profile, name="admin_profile"),
     path('admin_profile_update/', HodViews.admin_profile_update, name="admin_profile_update"),
+    path('manage_timetable/', HodViews.manage_timetable, name="manage_timetable"),
+    path('add_timetable_save/', HodViews.add_timetable_save, name='add_timetable_save'),
+    path('timetable/', HodViews.timetable, name='timetable'),
+
+
     
 
 

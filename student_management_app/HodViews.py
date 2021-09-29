@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 
-from student_management_app.models import CustomUser, Staffs, Subjects, Students, SessionYearModel, Attendance, AttendanceReport
+from student_management_app.models import Courses, CustomUser, Staffs, Subjects, Students, SessionYearModel, Attendance, AttendanceReport, Timetable
 from .forms import AddStudentForm, EditStudentForm
 
 
@@ -298,7 +298,7 @@ def add_student_save(request):
                 # user.students.course_id = course_obj
 
                 session_year_obj = SessionYearModel.objects.get(id=session_year_id)
-                # user.students.session_year_id = session_year_obj
+                user.students.session_year_id = session_year_obj
 
                 user.students.gender = gender
                 user.students.profile_pic = profile_pic_url
@@ -309,7 +309,7 @@ def add_student_save(request):
                 messages.error(request, "Failed to Add Student!")
                 return redirect('add_student')
         else:
-            return redirect('add_student_template.html')
+            return redirect('add_student')
 
 
 def manage_student(request):
@@ -631,4 +631,37 @@ def student_profile(requtest):
     pass
 
 
+def manage_timetable(request):
+    timetable = Timetable.objects.all()
+    context = {
+        "timetable": timetable
+    }
+    return render(request, 'hod_template/manage_timetable.html', context)
+
+def add_timetable_save(request):
+    if request.method != "POST":
+        messages.error(request, "Invalid Method ")
+        return redirect('manage_timetable')
+    else:
+        subject = request.POST.get('subject')
+        day = request.POST.get('day')
+        date = request.POST.get('date')
+        start = request.POST.get('start')
+        finish = request.POST.get('finish')
+        classes = request.POST.get('classes')
+        teacher= request.POST.get('teacher')
+
+
+        try:
+            timetable = Timetable(subject= subject, day=day, date=date, start= start, finish=finish, classes=classes, teacher= teacher)
+            timetable.save()
+            messages.success(request, "timetable Added Successfully!")
+            return redirect('manage_timetable')
+        except:
+            messages.error(request, "Failed to Add Timetable!")
+            return redirect('manage_timetable')
+
+def timetable(request):
+   
+    return render(request, 'hod_template/Timetable.html')
 

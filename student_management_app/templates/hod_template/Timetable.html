@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+{%block content%}
+
+<div class="container">
+    <div class="timetable-img text-center">
+        <img src="img/content/timetable.png" alt="">
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr class="bg-light-gray">
+                    <th class="text-uppercase">Day of week
+                    </th>
+                    <th class="text-uppercase" style="width:10% ; border: 1px solid black">6.30-7.50</th>
+                    <th class="text-uppercase">8.00A.M- 8.40A.M</th>
+                    <th class="text-uppercase">8.40A.M- 9.20A.M</th>
+                    <th class="text-uppercase" style="width:50px; border: 1px solid black">9.20A.M- 9.30A.M</th>
+                    <th class="text-uppercase">9.30A.M- 10.10A.M</th>
+                    <th class="text-uppercase">10.10A.M- 10.50A.M</th>
+                    <th class="text-uppercase">10.50A.M- 11.10A.M</th>
+                    <th class="text-uppercase">11.10A.M- 11.50A.M</th>
+                    <th class="text-uppercase">11.50A.M- 12.30P.M</th>
+                    <th class="text-uppercase">12.30P.M- 1.10P.M</th>
+                    <th class="text-uppercase">1.10P.M- 2.00P.M</th>
+                    <th class="text-uppercase">2.00P.M- 2.40P.M</th>
+                    <th class="text-uppercase">2.40P.M- 3.20P.M</th>
+                    <th class="text-uppercase">3.40P.M- 4.00P.M</th>
+                    <th class="text-uppercase">4.00P.M- 5.00P.M</th>
+                    <th class="text-uppercase">5.00P.M- 6.00P.M</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="align-middle">MONDAY</td>
+                    <td>
+                        <span class="label label-default padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-bold ">P</span>
+                        <!-- <div class="margin-10px-top font-size14">9:00-10:00</div>
+                        <div class="font-size13 text-light-gray">Ivana Wong</div> -->
+                    </td>
+                    <td>
+                        <span class="label label-primary padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom  font-size16  xs-font-size13"></span>
+                        <!-- <div class="margin-10px-top font-size14">9:00-10:00</div> -->
+                        <div class="font-size13 text-grey">
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                    </td>
+                    <td>
+                        <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">B</span>
+                        <div class="margin-10px-top font-size14"></div>
+                    </td>
+                    <td>
+                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                    </td>
+                    <td>
+                        <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">B</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">L</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="align-middle">TUESDAY</td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom  font-size16  xs-font-size13 text-bold">R</span>
+                        <!-- <div class="margin-10px-top font-size14">10:00-11:00</div>
+                        <div class="font-size13 text-light-gray">Ivana Wong</div> -->
+                    </td>
+                    <td class="bg-light-gray">
+
+                    </td>
+                    <td>
+                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">R</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td class="bg-light-gray">
+
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">R</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">U</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    
+                </tr>
+
+                <tr>
+                    <td class="align-middle">WEDNESDAY</td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom  font-size16  xs-font-size13 text-bold">E</span>
+                        <!-- <div class="margin-10px-top font-size14">10:00-11:00</div>
+                        <div class="font-size13 text-light-gray">Ivana Wong</div> -->
+                    </td>
+                    <td class="bg-light-gray">
+
+                    </td>
+                    <td>
+                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">E</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class="bg-pink padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td class="bg-light-gray">
+
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">E</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">N</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="align-middle">THURSDAY</td>
+                    <td class="bg-light-gray">
+                    <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom  font-size16  xs-font-size13 text-bold">P</span>
+
+                    </td>
+                    <td>
+                        <span class="bg-purple padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom  font-size16  xs-font-size13 text-bold"></span>
+                        <!-- <div class="margin-10px-top font-size14">12:00-1:00</div>
+                        <div class="font-size13 text-light-gray">Kate Alley</div> -->
+                    </td>
+                    <td>
+                        <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">A</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td class="bg-light-gray">
+
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom  font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">A</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">C</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="align-middle">FRIDAY</td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">S</span>
+                        <!-- <div class="margin-10px-top font-size14">1:00-2:00</div>
+                        <div class="font-size13 text-light-gray">James Smith</div> -->
+                    </td>
+                    <td>
+                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td class="bg-light-gray">
+
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">K</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class="bg-yellow padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">K</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold">H</span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                    <td>
+                        <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom font-size16  xs-font-size13 text-bold"></span>
+                        <div class="margin-10px-top font-size14"></div>
+                        <div class="font-size13 text-light-gray"></div>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

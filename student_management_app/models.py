@@ -71,7 +71,7 @@ class Subjects(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
-    class_name = models.CharField(max_length=10,choices=classes)
+    # class_name = models.CharField(max_length=10,choices=classes)
 
 
 
@@ -81,7 +81,7 @@ class Students(models.Model):
     gender = models.CharField(max_length=50)
     profile_pic = models.FileField()
     address = models.TextField()
-    course_id = models.ForeignKey(Courses, on_delete=models.DO_NOTHING, default=1)
+    # course_id = models.ForeignKey(Courses, on_delete=models.DO_NOTHING, default=1)
     session_year_id = models.ForeignKey(SessionYearModel, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -138,6 +138,19 @@ class StudentResult(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
 
+class Timetable(models.Model):
+    date = models.DateField()
+    day = models.CharField(max_length=100)
+    subject=models.CharField(max_length=1000)
+    start = models.TimeField()
+    finish = models.TimeField()
+    stream = models.CharField(max_length=100)
+    teacher = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.day
+
+
 
 #Creating Django Signals
 
@@ -154,7 +167,7 @@ def create_user_profile(sender, instance, created, **kwargs):
         if instance.user_type == 2:
             Staffs.objects.create(admin=instance)
         if instance.user_type == 3:
-            Students.objects.create(admin=instance, course_id=Courses.objects.get(id=1), session_year_id=SessionYearModel.objects.get(id=1), address="", profile_pic="", gender="")
+            Students.objects.create(admin=instance, session_year_id=SessionYearModel.objects.get(id=1), address="", profile_pic="", gender="")
     
 
 @receiver(post_save, sender=CustomUser)

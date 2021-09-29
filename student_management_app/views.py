@@ -24,7 +24,7 @@ def doLogin(request):
         if user != None:
             login(request, user)
             user_type = user.user_type
-            #return HttpResponse("Email: "+request.POST.get('email')+ " Password: "+request.POST.get('password'))
+            # return HttpResponse("Email: "+request.POST.get('email')+ " Password: "+request.POST.get('password'))
             if user_type == '1':
                 return redirect('admin_home')
                 
